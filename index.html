@@ -1,0 +1,313 @@
+<!-- 
+The A11Y Project är ett community-drivet initiativ som strävar efter att göra digital tillgänglighet enklare, 
+mer begriplig och lättare att implementera för alla.
+
+Läs lite om projektet:
+https://www.a11yproject.com/about/
+
+
+Tillgänglighet är en viktig del av webbutveckling. Det handlar om att göra webbplatser och appar tillgängliga för alla, inklusive personer med funktionsnedsättningar. 
+Det finns många sätt att göra en webbplats mer tillgänglig, till exempel att använda semantisk HTML, skapa enkel navigering och använda alternativa texter för bilder.
+ ____________________________________________________________________________________________________
+ 1. Läs noga genom koden och identifiera alla tillgänglighetsproblem.
+ 
+ 2. Testa kör lighthouse i devtools(Google chrome) och se vilka problem som finns.
+
+ 3. Skriv en kort sammanfattning av vad som är fel och hur det kan åtgärdas.
+
+ 4. Skriv om koden så att den följer tillgänglighetsstandarder.
+
+ 5. Skriv en kort sammanfattning av vad du har ändrat och varför.
+
+ 6. Testa din nya kod med andra verktyg för tillgänglighet.
+
+ 7. Skriv en kort reflektion över hur det var att göra uppgiften. Vad var svårt? Vad lärde du dig?
+ ____________________________________________________________________________________________________
+
+-->
+
+
+<!DOCTYPE html>
+<!-- What happens when the language attribute is commented out? -->
+<!-- <html lang="en"> -->
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Vase Vista | Artisanal Vases & Minimalist Vessels</title>
+    
+    <meta name="description" content="Elevating spaces through thoughtfully designed vessels that blend form and function in perfect harmony.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="styles.css">
+  </head>
+
+  <body>
+    <!-- Header/Navbar -->
+    <header class="header">
+      <div class="container">
+       <nav class="navbar" aria-label="Main Navigation">
+        <a href="#home" class="logo">Vase Vista</a>
+        
+        <ul class="nav-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#collection">Collection</a></li>
+          <li><a href="#philosophy">Philosophy</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      </div>
+    </header>
+ 
+    <main>
+      <!-- Hero Section -->
+      <section id="home" class="hero">
+        <div class="container">
+          <div class="hero-content">
+            <span class="subtitle">Artisanal Excellence</span>
+            <!-- Two <h1> tags inside .container may affect accessibility and SEO. -->
+
+            <h1>Timeless Beauty <br>in Every Curve</h1>
+            <p>Each piece tells a story of craftsmanship and elegance, designed to elevate your space and inspire your senses.</p>
+            <div class="hero-buttons">
+              <a href="#collection" class="btn btn-primary">Explore Collection</a>
+              <a href="#philosophy" class="btn btn-secondary">Our Philosophy</a>
+            </div>
+          </div>
+          <div class="hero-image">
+            <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?q=80&w=1887&auto=format&fit=crop" alt="Elegant ceramic vase with minimalist design">
+          </div>
+        </div>
+      </section>
+
+      <!-- Product Showcase -->
+      <section id="collection" class="products">
+        <div class="container">
+            <div class="section-header">
+              <span class="subtitle">Our Collection</span>
+              <h2>Curated Excellence</h2>
+            </div>
+
+            <!-- Use a <button> instead of a <div> to improve accessibility -->
+          <div class="category-filters" role="group" aria-label="Filter products by category">
+            <button type="button" class="filter-btn" aria-pressed="true">All</button>
+            <button type="button" class="filter-btn" aria-pressed="false">Ceramic</button>
+            <button type="button" class="filter-btn" aria-pressed="false">Glass</button>
+            <button type="button" class="filter-btn" aria-pressed="false">Porcelain</button>
+            </div>
+
+            <!-- Broken urls on some pictures, what can we do to change this? -->
+            <!-- Missing alt text and hotlinking an external image can affect accessibility, performance, and reliability. -->
+            <div class="product-grid">
+              <article class="product-card">
+                <div class="product-image">
+                  <img src="images/terra-vase.jpg" 
+                      alt="Hand-thrown matte terracotta sculptural vase">
+                </div>
+                <div class="product-info">
+                  <span class="product-category">Ceramic</span>
+                  <h3>Terra Sculptural Vase</h3> 
+                  <p>Hand-thrown ceramic with a matte terracotta finish</p>
+                  <span class="product-price">$120</span>
+                </div>
+              </article>
+            
+
+              <!-- Mismatched closing tag: Change </h3> to </h1> for correct HTML structure. 
+              Ensure heading levels are used logically for better accessibility and screen reader navigation. -->
+              <div class="product-card">
+                <div class="product-image">
+                  <img src="https://images.unsplash.com/photo-1581783342308-f792dbdd27c5?q=80&w=1964&auto=format&fit=crop" alt="Serenity Glass Vessel with blue gradient">
+                </div>
+                <div class="product-info">
+                  <span class="product-category">Glass</span>
+                  <h3>Serenity Glass Vessel</h3> <p>Mouth-blown glass with a gentle gradient effect</p>
+                  <span class="product-price">$95</span>
+                </div>
+              </div>
+
+              <div class="product-card">
+                <div class="product-image">
+                  <img src="images/nordic-vase.jpg" alt="White Nordic Minimalist Vase">
+                </div>
+                <div class="product-info">
+                  <span class="product-category">Porcelain</span>
+                  <h3>Nordic Minimalist Vase</h3>
+                  <p>Clean lines and pure form in white porcelain</p>
+                  <span class="product-price">$85</span>
+                </div>
+              </div>
+
+              <div class="product-card">
+                <div class="product-image">
+                  <img src="https://images.unsplash.com/photo-1582131503261-fca1d1c0589f?q=80&w=1974&auto=format&fit=crop" alt="Asymmetrical Organic Contour Vessel">
+                </div>
+                <div class="product-info">
+                  <span class="product-category">Ceramic</span>
+                  <h3>Organic Contour Vessel</h3>
+                  <p>Asymmetrical silhouette with a handcrafted texture</p>
+                  <span class="product-price">$135</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+      </section>
+
+      <!-- Philosophy Section -->
+      <section id="philosophy" class="philosophy">
+        <div class="container">
+          <div class="philosophy-content">
+            <div class="philosophy-image">
+              <img src="https://images.unsplash.com/photo-1576020799627-aeac74d58064?q=80&w=1964&auto=format&fit=crop">
+              <div class="quote-box">
+                <figure>
+                  <blockquote cite="https://en.wikiquote.org/wiki/Leonardo_da_Vinci">
+                    <p>"Simplicity is the ultimate sophistication."</p>
+                  </blockquote>
+                  <figcaption>— <cite>Leonardo da Vinci</cite></figcaption>
+                </figure>
+              </div>
+            </div>
+            <div class="philosophy-text">
+              <span class="subtitle">Our Approach</span>
+              <h2>The Philosophy Behind Our Design</h2>
+              
+              <!-- Instead of using multiple <br> tags to separate paragraphs, use <p> or proper headings for better readability. -->
+              <div class="philosophy-paragraphs">
+                <p>We believe in the beauty of form that follows function, creating pieces that are not just vessels but expressions of artistry that enhance your surroundings.</p>
+                <p>Each vase is thoughtfully designed with attention to proportion, texture, and material integrity—celebrating the perfect balance between modern aesthetics and timeless craftsmanship.</p>
+                <p>Our commitment to sustainability means we source materials responsibly and create objects meant to be cherished for generations, not discarded with changing trends.</p>
+              </div>
+              
+              <div class="philosophy-stats">
+                <div class="stat">
+                  <div class="stat-number">10+</div>
+                  <p>Years of Craftsmanship</p>
+                </div>
+                <div class="stat">
+                  <div class="stat-number">100%</div>
+                  <p>Handcrafted</p>
+                </div>
+                <div class="stat">
+                  <div class="stat-number">50+</div>
+                  <p>Unique Designs</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Section -->
+      <section id="contact" class="contact">
+        <div class="container">
+          <div class="contact-content">
+            <span class="subtitle">Stay Connected</span>
+            <h2>Join Our Community</h2>
+            <p>Be the first to know about new collections, exclusive offers, and design inspiration. Subscribe to our newsletter for a curated experience.</p>
+            
+            <form class="newsletter-form">
+              <div class="form-group">
+                <input type="email" placeholder="Your email address" required>
+                <button type="submit" class="btn btn-primary">Subscribe</button>
+              </div>
+            </form>
+            
+            <!-- Instead of using multiple <br> tags to separate paragraphs, use <p> or proper headings for better readability. -->
+          <div class="contact-info">
+            <div class="info-card">
+              <h3>Visit Our Studio</h3>
+              <address>
+                <p>123 Design Avenue, Studio 405</p>
+                <p>New York, NY 10001</p>
+              </address>
+            </div>
+
+            <div class="info-card">
+              <h3>Opening Hours</h3>
+              <dl>
+                <div><dt>Monday - Friday</dt> <dd>10am - 6pm</dd></div>
+                <div><dt>Saturday</dt> <dd>11am - 5pm</dd></div>
+                <div><dt>Sunday</dt> <dd>Closed</dd></div>
+              </dl>
+            </div>
+
+            <div class="info-card">
+              <h3>Get in Touch</h3>
+              <ul class="contact-links">
+                <li><a href="mailto:info@vasevista.com">info@vasevista.com</a></li>
+                <li><a href="tel:+12125551234">+1 (212) 555-1234</a></li>
+                <li><a href="https://instagram.com/vasevista" target="_blank">@vasevista</a></li>
+              </ul>
+            </div>
+          </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-brand">
+            <h3>Vase Vista</h3>
+            <p>Elevating spaces through thoughtfully designed vessels that blend form and function in perfect harmony.</p>
+          </div>
+
+          <!-- Incorrect use of <p> for links: Replace <p> with <a> to ensure proper semantics and accessibility. -->
+          <div class="footer-links">
+            <div class="footer-column">
+              <h4>Quick Links</h4>
+              <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#collection">Collection</a></li>
+                <li><a href="#philosophy">Philosophy</a></li>
+                <li><a href="#contact">Contact</a></li>
+              </ul>
+            </div>
+         
+            <!-- 404 pages and # links provide no destination  -->
+            <div class="footer-column">
+              <h4>Connect</h4>
+              <ul>
+                <li>
+                  <a href="https://instagram.com/vasevista" target="_blank" rel="noopener" aria-label="Follow Vase Vista on Instagram">
+                    Instagram
+                  </a>
+                </li>
+                <li>
+                  <a href="https://pinterest.com/vasevista" target="_blank" rel="noopener" aria-label="Follow Vase Vista on Pinterest">
+                    Pinterest
+                  </a>
+                </li>
+                <li>
+                  <a href="https://linkedin.com/company/vasevista" target="_blank" rel="noopener" aria-label="Connect with Vase Vista on LinkedIn">
+                    LinkedIn
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        
+        <div class="footer-bottom">
+          <p>&copy; 2023 Vase Vista. All rights reserved.</p>
+          
+          <div class="footer-legal">
+            <a href="404.html">Privacy Policy</a>
+            <a href="404.html">Terms of Service</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js" defer></script>
+  </body>
+</html>
